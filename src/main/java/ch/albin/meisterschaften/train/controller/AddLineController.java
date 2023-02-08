@@ -9,7 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Spinner;
 
 
-public class AddLineController {
+public class AddLineController implements Controller{
     public Spinner<Integer> numberInput;
     public ComboBox<TrainType> typeInput;
     public ColorPicker colorInput;

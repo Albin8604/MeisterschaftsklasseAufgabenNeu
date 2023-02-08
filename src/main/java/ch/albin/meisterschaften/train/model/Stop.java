@@ -11,7 +11,9 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -38,7 +40,7 @@ public class Stop {
     @JoinTable(name = "train_line_stop",
             joinColumns = @JoinColumn(name = "stop_id"),
             inverseJoinColumns = @JoinColumn(name = "train_line_id"))
-    private Set<TrainLine> trainLines = new LinkedHashSet<>();
+    private List<TrainLine> trainLines = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -80,11 +82,11 @@ public class Stop {
         this.longitude = longitude;
     }
 
-    public Set<TrainLine> getTrainLines() {
+    public List<TrainLine> getTrainLines() {
         return trainLines;
     }
 
-    public void setTrainLines(Set<TrainLine> trainLines) {
+    public void setTrainLines(List<TrainLine> trainLines) {
         this.trainLines = trainLines;
     }
 
