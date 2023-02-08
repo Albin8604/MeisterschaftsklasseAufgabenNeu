@@ -55,7 +55,7 @@ public class MainController implements Controller {
 
     public void dataImport(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("*.csv"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("CSV","*.csv"));
 
         File file = fileChooser.showOpenDialog(table.getScene().getWindow());
         Import.read(file);

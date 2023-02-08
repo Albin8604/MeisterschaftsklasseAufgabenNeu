@@ -1,5 +1,6 @@
 package ch.albin.meisterschaften.train.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,7 +12,9 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,15 +28,15 @@ public class TrainLine {
     @Column(name = "number", nullable = false)
     private Integer number;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "type", nullable = false)
     private TrainType type;
 
     @Column(name = "color_code", nullable = false, length = 8)
     private String colorCode;
 
-    @ManyToMany(mappedBy = "trainLines", fetch = FetchType.EAGER)
-    private Set<Stop> stops = new LinkedHashSet<>();
+    @ManyToMany(mappedBy = "trainLines", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+    private List<Stop> stops = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -47,8 +50,9 @@ public class TrainLine {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public TrainLine setNumber(Integer number) {
         this.number = number;
+        return this;
     }
 
     public TrainType getType() {
@@ -67,11 +71,11 @@ public class TrainLine {
         this.colorCode = colorCode;
     }
 
-    public Set<Stop> getStops() {
+    public List<Stop> getStops() {
         return stops;
     }
 
-    public void setStops(Set<Stop> stops) {
+    public void setStops(List<Stop> stops) {
         this.stops = stops;
     }
 

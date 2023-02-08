@@ -29,6 +29,11 @@ public class Import {
 
             while (scanner.hasNextLine()){
                 String line = scanner.nextLine();
+
+                if (line.isBlank()){
+                    continue;
+                }
+
                 String[] data = line.split(DELIMITER);
 
                 TrainLine trainLine = getLineByNumber(Integer.parseInt(data[0]));
