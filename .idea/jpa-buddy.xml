@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpaBuddyIdeaProjectConfig">
+    <option name="defaultUnitInitialized" value="true" />
+    <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="f23b8140-6539-4ee0-960a-b90267e3177e" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/ch/albin/meisterschaften/train/model" />
+  </component>
+</project>
